@@ -312,7 +312,7 @@ namespace lbz
 				if ([valid respondsToSelector:@selector(boolValue)] && [valid boolValue])
 				{
 					NSString* user = [d[@"user_name"] isKindOfClass:[NSString class]] ? d[@"user_name"] : @"(unknown)";
-					done(true, [NSString stringWithFormat:@"The token is valid. Submitting as user \"%@\".", user]);
+					done(true, [NSString stringWithFormat:@"Token valid. Submitting as \"%@\".", user]);
 					return;
 				}
 				NSString* msg = [d[@"message"] isKindOfClass:[NSString class]] ? d[@"message"] : @"The token was not accepted.";
