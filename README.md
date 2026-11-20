@@ -9,7 +9,7 @@ This is **not an original design**. It is a macOS port of
 [foo_listenbrainz2](https://github.com/phw/foo_listenbrainz2) for Windows:
 
 * The original component was written by **[marc2003](https://github.com/marc2003/)**.
-* It is maintained and extended by **[phw](https://github.com/phw)** (Philipp Wolfer).
+* It is maintained and extended by **[phw](https://github.com/phw)**.
 
 Their behaviour is what this port reproduces (when a listen is submitted, which tags
 and MusicBrainz IDs are sent, the offline cache, the options), and the original
