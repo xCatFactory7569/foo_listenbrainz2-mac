@@ -70,8 +70,9 @@ static NSString* LBZTrim(NSString* s)
 	test.frame = NSMakeRect(20, 10, 110, 30);
 	[self.view addSubview:test];
 
-	self.statusLabel = [NSTextField labelWithString:@""];
-	self.statusLabel.frame = NSMakeRect(140, 15, 400, 18);
+	self.statusLabel = [NSTextField wrappingLabelWithString:@""];
+	self.statusLabel.frame = NSMakeRect(140, 8, 400, 34);
+	self.statusLabel.maximumNumberOfLines = 2;
 	[self.view addSubview:self.statusLabel];
 }
 
