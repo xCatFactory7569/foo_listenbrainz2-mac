@@ -1,0 +1,39 @@
+name: Build macOS component
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15-intel
+    timeout-minutes: 60
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Restore SDK cache
+        uses: actions/cache@v4
+        with:
+          path: work
+          key: fb2k-sdk-2026-10-01-${{ hashFiles('build_sdk.sh') }}
+
+      - name: Build the foobar2000 SDK libraries
+        run: bash build_sdk.sh
+
+      - name: Build the component
+        run: bash build_component.sh
+
+      - name: Upload the component
+        uses: actions/upload-artifact@v4
+        with:
+          name: foo_listenbrainz2-macOS-Intel
+          path: dist/foo_listenbrainz2.fb2k-component
+          if-no-files-found: error
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: work/sdk-build.log
+          if-no-files-found: ignore
